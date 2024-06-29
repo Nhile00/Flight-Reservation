@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawk Airline Reservation System - Flight Bookings</title>
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="description" content="Hawk Airline Reservation System">
+    <link rel="icon" href="Images/icons8-airplane-50.png" type="image/x-icon">
+</head>
+
+<body>
+	<div class="navbar">
+        <div class="title">
+            <img src="Images/logo.png" width="40" height="40" />
+            <h1>Hawk Airline Reservation System</h1> 
+        </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="passengers.html">Passengers</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="flights.html">Flights</a>
+        <a href="aircraft.html">Aircraft</a>
+        <a href="airlines.html">Airlines</a>
+        <a href="airports.html">Airports</a>
+        <a href="flightbookings.html">Flight Bookings</a>
+
+    </nav>
+
+
+
+    <section>
+        <h2> Bookings Management </h2>
+
+    <!-- Search Form -->
+    <form action="/booking_management" method="GET">
+        <label for="search">Search Bookings:</label>
+        <input type="text" id="search" name="search" placeholder="Enter booking details">
+        <button type="submit">Search</button>
+    </form>
+
+
+        <!-- Bookings Table -->
+        <h3>View All Bookings</h3>
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Flight ID</th>
+                    <th>Passenger ID</th>
+                    <th>Date Booked</th>
+                    <th>Payment Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Replace with dynamic data -->
+                <tr>
+                    <td>1111</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>2024-04-10</td>
+                    <td>Confirmed</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1112</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>2024-05-01</td>
+                    <td>Active</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1113</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>2024-01-02</td>
+                    <td>Active</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1114</td>
+                    <td>4</td>
+                    <td>3</td>
+                    <td>2024-01-07</td>
+                    <td>Canceled</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1115</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>2024-02-01</td>
+                    <td>Active</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Form to Add a New Booking -->
+        <h3>Add New Booking</h3>
+        <form action="/addBooking" method="POST">
+            <label for="flightID">Select Flight (optional):</label>
+            <select id="flightID" name="flightID">
+                <option value="">None</option>
+                <option value="1111">1</option>
+                <option value="1112">2</option>
+                <option value="1113">3</option>
+                <option value="1114">4</option>
+                <option value="1113">5</option>
+                <option value="1114">6</option>
+        </select><br>
+
+            <label for="passengerID">Select Passenger:</label>
+            <select id="passengerID" name="passengerID">
+                <option value="">None</option>
+                <option value="1">1 - John Warner</option>
+                <option value="2">2 - Jane Hart</option>
+                <option value="3">3 - Alex Anderson</option>
+                <option value="4">4 - Joshua Brown</option>
+            </select>
+            <br>
+
+            <label for="newPassenger">Or Add New Passenger:</label>
+            <input type="text" id="newPassengerFirstName" name="newPassengerFirstName" placeholder="First Name"><br>
+            <input type="text" id="newPassengerLastName" name="newPassengerLastName" placeholder="Last Name"><br>
+            <input type="email" id="newPassengerEmail" name="newPassengerEmail" placeholder="Email"><br>
+            <input type="text" id="newPassengerPhoneNumber" name="newPassengerPhoneNumber" placeholder="Phone Number"><br>
+
+            <label for="dateBooked">Date Booked:</label>
+            <input type="date" id="dateBooked" name="dateBooked" required><br>
+        
+
+            <label for="status">Payment Status:</label>
+            <select id="status" name="status">
+                <option value="active">Active</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="canceled">Canceled</option>
+            </select>
+            <br>
+
+            <input type="submit" value="Add Booking">
+        </form>
+
+        <!-- Form Update Booking -->
+        <h3>Update Booking</h3>
+        <form action="/updateBooking" method="POST" id="updateBooking">
+                <label for="updateBookingID">Select Booking ID:</label>
+                <select id="updateBookingID" name="updateBookingID" required>
+                    <option value="" disabled selected>Please select a booking</option>
+                    <option value="1111">1111</option>
+                    <option value="1112">1112</option>
+                    <option value="1113">1113</option>
+                    <option value="1114">1114</option>
+                </select>
+                <br>
+
+                <label for="updateFlightID">Select Flight (or None):</label>
+                <select id="updateFlightID" name="flightID">
+                    <option value="">None</option>
+                    <option value="1111">1</option>
+                    <option value="1112">2</option>
+                    <option value="1113">3</option>
+                    <option value="1114">4</option>
+                    <option value="1113">5</option>
+                    <option value="1114">6</option>
+                </select><br>
+
+                <label for="updatePassengerID">Select Passenger:</label>
+                <select id="updatePassengerID" name="updatePassengerID" required>
+                    <option value="1">1 - John Warner</option>
+                    <option value="2">2 - Jane Hart</option>
+                    <option value="3">3 - Alex Anderson</option>
+                    <option value="4">4 - Joshua Brown</option>
+                </select>
+                <br>
+
+            <label for="updateDateBooked">Date Booked:</label>
+            <input type="date" id="updateDateBooked" name="updateDateBooked">
+            <br>
+
+            <label for="updateStatus">Payment Status:</label>
+            <select id="updateStatus" name="updateStatus">
+                <option value="" disabled selected>Please select a payment status</option>
+                <option value="active">Active</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="canceled">Canceled</option>
+            </select><br>
+
+            <button type="submit">Update Booking</button>
+    
+    </form>
+
+        <!-- Form to Delete Booking -->
+        <h3>Delete Booking</h3>
+        <form id="deleteBooking">
+            <form action="/deleteBooking" method="POST">
+                <label for="bookingID">Select Booking ID:</label>
+                <select id="bookingID" name="bookingID">
+                    <option value="1111">1111</option>
+                    <option value="1112">1112</option>
+                    <option value="1113">1113</option>
+                    <option value="1114">1114</option>
+                </select><br>
+            
+            <p>Are you sure you wish to delete the following?</p>
+            <p id="deleteDetails">
+                Booking ID: <span id="displayBookingID"></span><br>
+                Flight ID: <span id="displayFlightID"></span><br>
+                Passenger ID: <span id="displayPassengerID"></span><br>
+                Date Booked: <span id="displayDateBooked"></span><br>
+                Payment Status: <span id="displayStatus"></span>
+            </p>
+
+            <button type="submit">Delete Booking</button>
+        </form>
+
+    </section>
+
+    <footer>
+        &copy; 2024 Hawk Airline Reservation System. All rights reserved.
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawk Airline Reservation System</title>
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="description" content="Hawk Airline Reservation System">
+    <link rel="icon" href="Images/icons8-airplane-50.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <img src="Images/logo.png" alt="Logo" height="40">
+        <h1>Hawk Airline Reservation System</h1>
+    </header>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="public/passengers.html">Passengers</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="flights.html">Flights</a>
+        <a href="aircraft.html">Aircraft</a>
+        <a href="airlines.html">Airlines</a>
+        <a href="airports.html">Airports</a>
+        <a href="flightbookings.html">Flight Bookings</a>
+    </div>
+
+    <div class="container">
+        <h2>Home Page</h2>
+        <p>Hawk Airline Reservation System (ARS) is a premier provider of aviation and travel solutions, catering to a vast network of travelers and airlines. With an impressive annual record of ticket sales, our system remains a reliable platform for managing all aspects of air travel. The Hawk ARS integrates various travel components such as flight options, bookings, customer profiles, aircraft details, and airport information into one cohesive and user-friendly interface.
+        </p>
+        <p>The ARS is connected to numerous airports and airlines globally, managing a fleet of many aircraft. This extensive network allows passengers to effortlessly search for available flights, make reservations, and access real-time information on flight schedules and seating capacities. By centralizing customer, flight, and airport data, Hawk ARS enables passengers to make informed decisions swiftly, adjusting their travel plans according to real-time availability and personal preferences.
+        </p>
+        <p>Hawk ARS places a strong emphasis on data integrity and security, ensuring that customer information is protected while offering a dependable and efficient platform for managing travel needs. This integration not only enhances customer satisfaction but also streamlines the booking process, making it an indispensable tool for modern air travel.
+        </p>
+
+        <table class="descriptionTable">
+            <colgroup>
+                <col span="1" style="width: 20%;" />
+                <col span="1" style="width: 80%;" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>Table Name</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><b>Passengers</b></td>
+                    <td>An entity that contains data about our customers who book flights.</td>
+                </tr>
+                <tr>
+                    <td><b>Flights</b></td>
+                    <td>An entity that contains data about the flights, including departure and arrival details.</td>
+                </tr>
+                <tr>
+                    <td><b>Aircraft</b></td>
+                    <td>An entity that contains data about the aircraft in the airline’s fleet, including model and seating capacity.</td>
+                </tr>
+                <tr>
+                    <td><b>Airlines</b></td>
+                    <td>An entity that contains data about the different airline companies that operate flights.</td>
+                </tr>
+                <tr>
+                    <td><b>Bookings</b></td>
+                    <td>An entity that contains information about the reservations/bookings made by customers.</td>
+                </tr>
+                <tr>
+                    <td><b>FlightBookings</b></td>
+                    <td>An intersection table that supports the M:N relationship between Flights and Bookings.</td>
+                </tr>
+                <tr>
+                    <td><b>Airports</b></td>
+                    <td>An entity that contains data about the airports where flights depart and arrive.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br />
+        <p><em>© 2024 Nhi Le</em></p>
+        <hr />
+
+        <p><i>This section was added after the project was submitted for final grading.</i></p>
+
+        <h2>Development</h2>
+
+        <div class="form-btns">
+            <button class='devButton' id='reloadButton' onclick='reloadDB()'>Reload Database</button>
+        </div>
+        <br />
+        <form class='form-btns' action='./projectFinal.pdf'>
+            <input type='submit' class='devButton' value='PDF Download' />
+        </form>
+        <h4>Entity Relationship Diagram</h4>
+        <img src='./imgs/erd.png' class='devImg tab' />
+        <br /><br />
+        <h4>Schema</h4>
+        <img src='./imgs/schema.png' class='devImg tab' />
+        <br /><br />
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawk Airline Reservation System - Flight Bookings</title>
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="description" content="Hawk Airline Reservation System">
+    <link rel="icon" href="Images/icons8-airplane-50.png" type="image/x-icon">
+</head>
+
+<body>
+
+		<div class="navbar">
+			<div class="title">
+				<img src="Images/logo.png" width="40" height="40" />
+				<h1>Hawk Airline Reservation System</h1> 
+			</div>
+ 
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="passengers.html">Passengers</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="flights.html">Flights</a>
+        <a href="aircraft.html">Aircraft</a>
+        <a href="airlines.html">Airlines</a>
+        <a href="airports.html">Airports</a>
+        <a href="flightbookings.html">Flight Bookings</a>
+
+    </nav>
+
+
+    <section>
+        <h2> Aircraft Management </h2>
+
+    <!-- Search Form -->
+    <form action="/aircraft_management" method="GET">
+        <label for="search">Search Aircraft:</label>
+        <input type="text" id="search" name="search" placeholder="Enter aircraft details">
+        <button type="submit">Search</button>
+    </form>
+
+
+        <!-- Aircraft Table -->
+        <h3>View All Aircraft</h3>
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>Aircraft ID</th>
+                    <th>Model</th>
+                    <th>Capacity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aircraft data -->
+                <tr>
+                    <td>N123AA</td>
+                    <td>Boeing 737</td>
+                    <td>180</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>N124AA</td>
+                    <td>Airbus A320</td>
+                    <td>160</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>N125AA</td>
+                    <td>Boeing 777</td>
+                    <td>300</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>N128AA</td>
+                    <td>Airbus A318</td>
+                    <td>240</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Form to Add a New Aircraft -->
+        <h3>Add New Aircraft</h3>
+        <form id="addAircraft">
+            <label for="aircraftID">Aircraft ID:</label>
+            <input type="text" id="aircraftID" name="aircraftID" placeholder="e.g., N123AA" required>
+            <br>
+
+            <label for="model">Model:</label>
+            <input type="text" id="model" name="model" placeholder="e.g., Boeing 737" required>
+            <br>
+
+            <label for="capacity">Capacity:</label>
+            <input type="number" id="capacity" name="capacity" placeholder="e.g., 180" required>
+            <br>
+
+            <button type="submit">Add Aircraft</button>
+        </form>
+
+        <!-- Form to Update Aircraft -->
+        <h3>Update Aircraft</h3>
+        <form id="updateAircraft">
+                <label for="updateAircraftID">Aircraft ID:</label>
+                <input type="text" id="updateAircraftID" name="updateAircraftID" placeholder="e.g., N123AA" required>
+                <br>
+
+                <label for="updateModel">Model:</label>
+                <input type="text" id="updateModel" name="updateModel" placeholder="e.g., Boeing 737" required>
+                <br>
+
+                <label for="updateCapacity">Capacity:</label>
+                <input type="number" id="updateCapacity" name="updateCapacity" placeholder="e.g., 180" required>
+                <br>
+
+                <button type="submit">Update Aircraft</button>
+        </form>
+
+
+        <!-- Form to Delete Aircraft -->
+        <h3>Delete Aircraft</h3>
+        <form action="/deleteAircraft" method="POST">
+            <label for="deleteAircraftID">Aircraft ID:</label>
+            <select id="deleteAircraftID" name="aircraftID" onchange="populateDeleteDetails()">
+                <option value="" disabled selected>Please select an aircraft ID</option>
+                <option value="N123AA">N123AA</option>
+                <option value="N124AA">N124AA</option>
+                <option value="N125AA">N125AA</option>
+                <option value="N128AA">N128AA</option>
+            </select>
+            <br>
+
+                <p>Are you sure you wish to delete the following?</p>
+                <p id="deleteDetails">
+                    Model: <span id="displayModel"></span><br>
+                    Capacity: <span id="displayCapacity"></span>
+                </p>
+
+                <button type="submit">Delete Aircraft</button>
+        </form>
+    </section>
+
+    <footer>
+        &copy; 2024 Hawk Airline Reservation System. All rights reserved.
+    </footer>
+
+</body>
+
+</html>

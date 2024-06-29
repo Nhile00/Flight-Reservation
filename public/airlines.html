@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawk Airline Reservation System</title>
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="description" content="Hawk Airline Reservation System">
+    <link rel="icon" href="Images/icons8-airplane-50.png" type="image/x-icon">
+</head>
+
+
+<body>
+	<div class="navbar">
+        <div class="title">
+            <img src="Images/logo.png" width="40" height="40" />
+            <h1>Hawk Airline Reservation System</h1> 
+        </div>
+            
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="passengers.html">Passengers</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="flights.html">Flights</a>
+        <a href="aircraft.html">Aircraft</a>
+        <a href="airlines.html">Airlines</a>
+        <a href="airports.html">Airports</a>
+        <a href="flightbookings.html">Flight Bookings</a>
+
+    </nav>
+
+
+
+    <section>
+        <h2> Airline Management </h2>
+
+    <!-- Search Form -->
+    <form action="/airline_management" method="GET">
+        <label for="search">Search Airlines:</label>
+        <input type="text" id="search" name="search" placeholder="Enter airline details">
+        <button type="submit">Search</button>
+    </form>
+
+        <!-- Airlines Table -->
+        <h3>View All Airlines</h3>
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>Airline ID</th>
+                    <th>Airline Name</th>
+                    <th>Headquarters Location</th>
+                    <th>Phone Number</th>
+                    <th>Customer Service Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Airline data added here -->
+                <tr>
+                    <td>1001</td>
+                    <td>Delta</td>
+                    <td>Atlanta, GA</td>
+                    <td>123-456-7855</td>
+                    <td>contact@delta.com</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1002</td>
+                    <td>United</td>
+                    <td>Chicago, IL</td>
+                    <td>028-523-3215</td>
+                    <td>contact@united.com</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1003</td>
+                    <td>American</td>
+                    <td>Fort Worth, TX</td>
+                    <td>234-821-7778</td>
+                    <td>N/A</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                <tr>
+                    <td>1004</td>
+                    <td>Alaska</td>
+                    <td>Seattle, WA</td>
+                    <td>111-118-2315</td>
+                    <td>N/A</td>
+                    <td>
+                        <a href="#">Edit</a> |
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Form to Add a New Airline -->
+        <h3>Add New Airline</h3>
+        <form id="addAirline">
+            <label for="airlineName">Airline Name:</label>
+            <input type="text" id="airlineName" name="airlineName" placeholder="e.g., Delta" required>
+            <br>
+
+            <label for="headquartersLocation">Headquarters Location:</label>
+            <input type="text" id="headquartersLocation" name="headquartersLocation" placeholder="city, state" required>
+            <br>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g., 000-000-0000" required>
+            <br>
+
+            <label for="customerServiceEmail">Customer Service Email:</label>
+            <input type="email" id="customerServiceEmail" name="customerServiceEmail" placeholder="optional">
+            <br>
+
+            <button type="submit">Add Airline</button>
+            <input type="submit" value="Add Airline">
+        </form>
+
+          <!-- Form to Update Airline -->
+          <h3>Update Airline</h3>
+          <form id="updateAirline">
+              <label for="updateAirlineID">Select Airline:</label>
+              <select id="updateAirlineID" name="updateAirlineID" required>
+                  <option value="" disabled selected>Please select an airline</option>
+                  <option value="1001">1001 - Delta</option>
+                  <option value="1002">1002 - United</option>
+                  <option value="1003">1003 - American</option>
+                  <option value="1004">1004 - Alaska</option>
+              </select><br>
+
+              <label for="updateAirlineName">Airline Name:</label>
+              <input type="text" id="updateAirlineName" name="updateAirlineName" required>
+              <br>
+
+              <label for="updateHeadquartersLocation">Headquarters Location:</label>
+              <input type="text" id="updateHeadquartersLocation" name="updateHeadquartersLocation" placeholder="city, state" required>
+              <br>
+
+              <label for="updatePhoneNumber">Phone Number:</label>
+              <input type="tel" id="updatePhoneNumber" name="updatePhoneNumber" placeholder="e.g. 000-000-0000" required>
+              <br>
+
+              <label for="updateCustomerServiceEmail">Customer Service Email:</label>
+              <input type="email" id="updateCustomerServiceEmail" name="updateCustomerServiceEmail" placeholder="optional">
+              <br>
+
+              <button type="submit">Update Airline</button>
+          </form>
+
+
+            <!-- Form to Delete Airline -->
+            <h3>Delete Airline</h3>
+            <form id="deleteAirline">
+                <label for="deleteAirlineID">Select Airline:</label>
+                <select id="deleteAirlineID" name="deleteAirlineID" required>
+                    <option value="" disabled selected>Please select an airline ID</option>
+                    <option value="1001">1001 - Delta</option>
+                    <option value="1002">1002 - United</option>
+                    <option value="1003">1003 - American</option>
+                    <option value="1004">1004 - Alaska</option>
+                </select>
+                <br>
+
+                <p>Are you sure you wish to delete the following?</p>
+                <p id="deleteDetails">
+                    Airline Name: <span id="displayAirlineName"></span><br>
+                    Headquarters Location: <span id="displayHeadquartersLocation"></span><br>
+                    Phone Number: <span id="displayPhoneNumber"></span><br>
+                    Customer Service Email: <span id="displayCustomerServiceEmail"></span>
+                </p>
+
+                <button type="submit">Delete Airline</button>
+            </form>
+    </section>
+
+    <footer>
+        &copy; 2024 Hawk Airline Reservation System. All rights reserved.
+    </footer>
+
+</body>
+
+</html>

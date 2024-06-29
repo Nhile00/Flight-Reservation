@@ -1,0 +1,40 @@
+
+.logo-container {
+    display: flex;        /* Enables flexbox */
+    align-items: center;  /* Vertically center aligns the items in the container */
+    white-space: nowrap;  /* Prevents the text from wrapping */
+}
+
+.logo-container img {
+    margin-right: 5px;   /* Adds some space between the logo and the text */
+}
+
+h1 {
+    margin: 0; /* Removes default margin */
+    display: inline; /* This is usually not necessary but can be used as a test */
+}
+
+.descriptionTable {
+    width: 80%; /* Set a fixed width for the table */
+    border-collapse: collapse;
+}
+
+.descriptionTable th, .descriptionTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    word-wrap: break-word; /* Wrap long words within the cells */
+    white-space: normal; /* Allow wrapping within the cells */
+}
+
+.descriptionTable th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.descriptionTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.descriptionTable tr:hover {
+    background-color: #ddd;
+}

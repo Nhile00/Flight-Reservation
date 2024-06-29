@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawk Airline Reservation System - Flight Bookings</title>
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="description" content="Hawk Airline Reservation System">
+    <link rel="icon" href="Images/icons8-airplane-50.png" type="image/x-icon">
+</head>
+
+<body>
+	<div class="navbar">
+        <div class="title">
+            <img src="Images/logo.png" width="40" height="40" />
+            <h1>Hawk Airline Reservation System</h1> 
+        </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="passengers.html">Customers</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="flights.html">Flights</a>
+        <a href="aircraft.html">Aircraft</a>
+        <a href="airlines.html">Airlines</a>
+        <a href="airports.html">Airports</a>
+        <a href="flightbookings.html">Flight Bookings</a>
+
+    </nav>
+
+
+    <section>
+        <h2> Flight Management </h2>
+
+    <!-- Search Form -->
+    <form action="/flight_management" method="GET">
+        <label for="search">Search Flights:</label>
+        <input type="text" id="search" name="search" placeholder="Enter flight details">
+        <button type="submit">Search</button>
+    </form>
+
+        <!-- Flights Table -->
+        <h3>View All Flights</h3>
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>Flight ID</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Departure Airport</th>
+                    <th>Arrival Airport</th>
+                    <th>Aircraft ID</th>
+                    <th>Airline ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Flight data added here -->
+                <tr>
+                    <td>1</td>
+                    <td>2024-05-01 08:00 AM</td>
+                    <td>2024-05-01 12:00 PM</td>
+                    <td>JFK</td>
+                    <td>LAX</td>
+                    <td>N123AA</td>
+                    <td>1001</td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2024-05-02 10:00 AM</td>
+                    <td>2024-05-02 03:00 PM</td>
+                    <td>LAX</td>
+                    <td>JFK</td>
+                    <td>N123AA</td>
+                    <td>1001</td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>2024-05-03 12:00:00</td>
+                    <td>2024-05-03 16:30:00</td>
+                    <td>JFK</td>
+                    <td>DCA</td>
+                    <td>N125AA</td>
+                    <td>1002</td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>2024-05-04 09:00:00</td>
+                    <td>2024-05-04 11:00:00</td>
+                    <td>ATL</td>
+                    <td>MIA</td>
+                    <td>N126AA</td>
+                    <td>1002</td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>2024-05-05 08:00 PM</td>
+                    <td>2024-05-05 11:30 PM</td>
+                    <td>ORD</td>
+                    <td>JFK</td>
+                    <td>N127AA</td>
+                    <td>1003</td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>2024-05-06 07:00 AM</td>
+                    <td>2024-05-06 08:30 AM</td>
+                    <td>EWR</td>
+                    <td>JFK</td>
+                    <td>N1278AA</td>
+                    <td>1004</td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Form to Add a New Flight -->
+        <h3>Add New Flight</h3>
+        <form id="addFlight">
+            <label for="departureTime">Departure Time:</label>
+            <input type="datetime-local" id="departureTime" name="departureTime">
+            <br>
+
+            <label for="arrivalTime">Arrival Time:</label>
+            <input type="datetime-local" id="arrivalTime" name="arrivalTime">
+            <br>
+
+            <label for="departureAirport">Departure Airport:</label>
+            <select id="departureAirport" name="departureAirport">
+                <option value="" disabled selected>Please select an airport</option>
+                <option value="JFK">JFK</option>
+                <option value="LAX">LAX</option>
+                <option value="ORD">ORD</option>
+                <option value="ATL">ATL</option>
+                <option value="EWR">EWR</option>
+            </select>
+            <br>
+
+            <label for="arrivalAirport">Arrival Airport:</label>
+            <select id="arrivalAirport" name="arrivalAirport">
+                <option value="" disabled selected>Please select an airport</option>
+                <option value="JFK">JFK</option>
+                <option value="LAX">LAX</option>
+                <option value="ORD">ORD</option>
+                <option value="ATL">ATL</option>
+                <option value="EWR">EWR</option>
+                <option value="DFW">DFW</option>
+                <option value="DEN">DEN</option>
+            </select>
+            <br>
+
+            <label for="aircraft">Aircraft:</label>
+            <select id="aircraft" name="aircraft">
+                <option value="" disabled selected>Please select an aircraft</option>
+                <option value="N123AA">N123AA</option>
+                <option value="N125AA">N125AA</option>
+                <option value="N126AA">N126AA</option>
+                <option value="N127AA">N127AA</option>
+                <option value="N1278AA">N1278AA</option>
+            </select>
+            <br>
+
+            <label for="airline">Airline:</label>
+           
+            <br>
+ <select id="airline" name="airline">
+                <option value="" disabled selected>Please select an airline</option>
+                <option value="1001">1001</option>
+                <option value="1002">1002</option>
+                <option value="1003">1003</option>
+                <option value="1004">1004</option>
+                <option value="1005">1005</option>
+                <option value="1006">1006</option>
+                <option value="1007">1007</option>
+                <option value="1007">1008</option>
+            </select>
+            <button type="submit">Add Flight</button>
+        </form>
+
+
+        <!-- Form to Update Flight -->
+        <h3>Update Flight</h3>
+        <form id="updateFlight">
+            <label for="updateFlightNumber">Flight Number:</label>
+            <select id="updateFlightNumber" name="updateFlightNumber" onchange="populateFlightDetails()">
+                <option value="" disabled selected>Please select a flight</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <br>
+
+            <label for="updateDepartureTime">Departure Time:</label>
+            <input type="datetime-local" id="updateDepartureTime" name="updateDepartureTime">
+            <br>
+
+            <label for="updateArrivalTime">Arrival Time:</label>
+            <input type="datetime-local" id="updateArrivalTime" name="updateArrivalTime">
+            <br>
+
+            <label for="updateDepartureAirport">Departure Airport:</label>
+            <select id="updateDepartureAirport" name="updateDepartureAirport">
+                <option value="" disabled selected>Please select an airport</option>
+                <option value="JFK">JFK</option>
+                <option value="LAX">LAX</option>
+                <option value="ATL">ATL</option>
+                <option value="ORD">ORD</option>
+                <option value="EWR">EWR</option>
+            </select>
+            <br>
+
+            <label for="updateArrivalAirport">Arrival Airport:</label>
+            <select id="updateArrivalAirport" name="updateArrivalAirport">
+                <option value="" disabled selected>Please select an airport</option>
+                <option value="JFK">JFK</option>
+                <option value="LAX">LAX</option>
+                <option value="ORD">ORD</option>
+                <option value="ATL">ATL</option>
+                <option value="EWR">EWR</option>
+                <option value="DFW">DFW</option>
+                <option value="DEN">DEN</option>
+            </select>
+            <br>
+
+            <label for="updateAircraft">Aircraft:</label>
+            <select id="updateAircraft" name="updateAircraft">
+                <option value="" disabled selected>Please select an aircraft</option>
+                <option value="N123AA">N123AA</option>
+                <option value="N125AA">N125AA</option>
+                <option value="N126AA">N126AA</option>
+                <option value="N127AA">N127AA</option>
+                <option value="N1278AA">N1278AA</option>
+            </select>
+            <br>
+
+            <label for="updateAirline">Airline:</label>
+            <select id="updateAirline" name="updateAirline">
+                <option value="" disabled selected>Please select an airline</option>
+                <option value="1001">1001</option>
+                <option value="1002">1002</option>
+                <option value="1003">1003</option>
+                <option value="1004">1004</option>
+                <option value="1005">1005</option>
+                <option value="1006">1006</option>
+                <option value="1007">1007</option>
+                <option value="1007">1008</option>
+            </select>
+            <br>
+
+            <button type="submit">Update Flight</button>
+        </form>
+
+        <!-- Form to Delete Flight -->
+        <h3>Delete Flight</h3>
+        <form id="deleteFlight">
+            <label for="deleteFlightNumber">Flight Number:</label>
+            <select id="deleteFlightNumber" name="deleteFlightNumber" onchange="populateDeleteDetails()">
+                <option value="" disabled selected>Please select a flight</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <br>
+
+            <p>Are you sure you wish to delete the following?</p>
+            <p id="deleteDetails">
+                Flight Number: <span id="displayFlightNumber"></span><br>
+                Departure Time: <span id="displayDepartureTime"></span><br>
+                Arrival Time: <span id="displayArrivalTime"></span><br>
+                Departure Airport: <span id="displayDepartureAirport"></span><br>
+                Arrival Airport: <span id="displayArrivalAirport"></span><br>
+                Aircraft: <span id="displayAircraft"></span><br>
+                Airline: <span id="displayAirline"></span>
+            </p>
+
+            <button type="submit">Delete Flight</button>
+        </form>
+
+    </section>
+
+    <footer>
+        &copy; 2024 Hawk Airline Reservation System. All rights reserved.
+    </footer>

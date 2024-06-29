@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawk Airline Reservation System - Flight Bookings</title>
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="description" content="Hawk Airline Reservation System">
+    <link rel="icon" href="Images/icons8-airplane-50.png" type="image/x-icon">
+</head>
+
+<body>
+	<div class="navbar">
+        <div class="title">
+            <img src="Images/logo.png" width="40" height="40" />
+            <h1>Hawk Airline Reservation System</h1> 
+        </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="passengers.html">Passengers</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="flights.html">Flights</a>
+        <a href="aircraft.html">Aircraft</a>
+        <a href="airlines.html">Airlines</a>
+        <a href="airports.html">Airports</a>
+        <a href="flightbookings.html">Flight Bookings</a>
+
+    </nav>
+
+
+
+    <section>
+        <h2> Airport Management </h2>
+
+
+        <!-- Search Form -->
+        <form action="/airport_management" method="GET">
+            <label for="search">Search Airports:</label>
+            <input type="text" id="search" name="search" placeholder="Enter airport details">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Airports Table -->
+        <h3>View All Airports</h3>
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>Airport IATA</th>
+                    <th>Airport Name</th>
+                    <th>Location</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Airport data added here -->
+                <tr>
+                    <td>JFK</td>
+                    <td>John F. Kennedy Intl</td>
+                    <td>New York, USA</td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>LAX</td>
+                    <td>Los Angeles Intl</td>
+                    <td>Los Angeles, USA</td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>ORD</td>
+                    <td>Chicago O’Hare Intl</td>
+                    <td>Chicago, USA</td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>ATL</td>
+                    <td>Hartsfield-Jackson Atlanta Intl</td>
+                    <td>Atlanta, USA</td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>EWR</td>
+                    <td>Newark Liberty Intl</td>
+                    <td>New Jersey, USA</td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Form to Add a New Airport -->
+        <h3>Add New Airport</h3>
+        <form action="/addAirport" method="POST">
+            <label for="airportIATA">Airport IATA:</label>
+            <input type="text" id="airportIATA" name="airportIATA" placeholder="e.g., JFK" required><br>
+
+            <label for="airportName">Airport Name:</label>
+            <input type="text" id="airportName" name="airportName" placeholder="e.g., John F. Kennedy Intl" required><br>
+
+            <label for="location">Location (City, Country):</label>
+            <input type="text" id="location" name="location" placeholder="e.g., New York, USA" required><br>
+
+            <input type="submit" value="Add Airport">
+        </form>
+
+        <!-- Form to Update Airport -->
+        <h3>Update Airport</h3>
+        <form action="/updateAirport" method="POST">
+            <label for="updateAirportIATA">Select Airport:</label>
+            <select id="updateAirportIATA" name="updateAirportIATA" required>
+                <option value="" disabled selected>Please select an airport</option>
+                <option value="JFK">JFK - John F. Kennedy Intl</option>
+                <option value="LAX">LAX - Los Angeles Intl</option>
+                <option value="ORD">ORD - Chicago O’Hare Intl</option>
+                <option value="ATL">ATL - Hartsfield-Jackson Atlanta Intl</option>
+                <option value="EWR">EWR - Newark Liberty Intl</option>
+            </select>
+            <br>
+
+            <label for="updateAirportName">Airport Name:</label>
+            <input type="text" id="updateAirportName" name="updateAirportName" placeholder="e.g., John F. Kennedy Intl" required>
+            <br>
+
+            <label for="updateLocation">Location (City, Country):</label>
+            <input type="text" id="updateLocation" name="updateLocation" placeholder="e.g., New York, USA" required>
+            <br>
+
+            <input type="submit" value="Update Airport">
+        </form>
+
+        <!-- Form to Delete Airport -->
+        <h3>Delete Airport</h3>
+        <form id="deleteAirport">
+            <label for="deleteAirportIATA">Select Airport IATA:</label>
+            <select id="deleteAirportIATA" name="deleteAirportIATA" required onchange="populateDeleteDetails()">
+                <option value="" disabled selected>Please select an airport IATA</option>
+                <option value="JFK">JFK</option>
+                <option value="LAX">LAX</option>
+                <option value="ORD">ORD</option>
+                <option value="ATL">ATL</option>
+                <option value="ATL">EWR</option>
+
+            </select>
+            <br>
+
+            <p>Are you sure you wish to delete the following?</p>
+            <p id="deleteDetails">
+                Airport Name: <span id="displayAirportName"></span><br>
+                Location: <span id="displayLocation"></span>
+            </p>
+
+            <button type="submit">Delete Airport</button>
+        </form>
+
+
+    </section>
+
+    <footer>
+        &copy; 2024 Hawk Airline Reservation System. All rights reserved.
+    </footer>
+
+</body>
+
+</html>

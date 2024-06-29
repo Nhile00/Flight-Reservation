@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawk Airline Reservation System</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header>
+        <img src="Images/logo.png" alt="Hawk Airlines Logo" width="40" height="40">
+        <h1>Hawk Airline Reservation System</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="passengers.html">Passengers</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="flights.html">Flights</a>
+        <a href="aircraft.html">Aircraft</a>
+        <a href="airlines.html">Airlines</a>
+        <a href="airports.html">Airports</a>
+        <a href="flightbookings.html">Flight Bookings</a>
+    </nav>
+
+    <section>
+        <!-- Delete Passenger Script -->
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/passengers')
+                .then(response => response.json())
+                .then(passengers => {
+                    const tbody = document.querySelector('tbody');
+                    passengers.forEach(passenger => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${passenger.id}</td>
+                            <td id="firstName${passenger.id}">${passenger.firstName}</td>
+                            <td id="lastName${passenger.id}">${passenger.lastName}</td>
+                            <td id="email${passenger.id}">${passenger.email}</td>
+                            <td id="phoneNumber${passenger.id}">${passenger.phoneNumber}</td>
+                            <td>
+                                <form action="/delete-passenger" method="POST" id="deleteForm${passenger.id}" style="display:inline;">
+                                    <input type="hidden" name="deletePassengerID" value="${passenger.id}">
+                                    <button type="button" onclick="deletePassenger(event, '${passenger.id}')">Delete</button>
+                                </form>
+                                <button type="button" onclick="updatePassenger('${passenger.id}')">Update</button>
+                            </td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                });
+        });
+
+            function deletePassenger(event, id) {
+                event.preventDefault();
+                if (confirm("Are you sure you want to delete this passenger?")) {
+                    document.getElementById(`deleteForm${id}`).submit();
+                }
+            }
+
+            function updatePassenger(id) {
+                // Fill update form with passenger's current details (you might need to fetch these details from the server or have them preloaded)
+                document.getElementById("selectCustomer").value = id;
+                document.getElementById("updateFirstName").value = document.getElementById(`firstName${id}`).innerText;
+                document.getElementById("updateLastName").value = document.getElementById(`lastName${id}`).innerText;
+                document.getElementById("updateEmail").value = document.getElementById(`email${id}`).innerText;
+                document.getElementById("updatePhoneNumber").value = document.getElementById(`phoneNumber${id}`).innerText;
+            }
+
+            function addPassenger() {
+                document.getElementById("addPassenger").submit();
+            }
+        </script>
+
+        <h2>Passenger Management</h2>
+
+        <!-- Search Form -->
+        <form method="GET" action="/passengers">
+            <label for="search">Search Passengers:</label>
+            <input type="text" id="searchName" name="searchName" placeholder="Enter passenger details">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Passengers Table -->
+        <h3>All Passengers</h3>
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>Passenger ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="passengerID1">1</td>
+                    <td id="firstName1">John</td>
+                    <td id="lastName1">Warner</td>
+                    <td id="email1">johnwarner@email.com</td>
+                    <td id="phoneNumber1">123-456-7890</td>
+                    <td>
+                        <form action="/delete-passenger" method="POST" id="deleteForm1" style="display:inline;">
+                            <input type="hidden" name="deletePassengerID" value="1">
+                            <button type="button" onclick="deletePassenger(event, '1')">Delete</button>
+                        </form>
+                        <button type="button" onclick="updatePassenger('1')">Update</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="passengerID2">2</td>
+                    <td id="firstName2">Jane</td>
+                    <td id="lastName2">Hart</td>
+                    <td id="email2">j.hart@email.com</td>
+                    <td id="phoneNumber2">987-654-3210</td>
+                    <td>
+                        <form action="/delete-passenger" method="POST" id="deleteForm2" style="display:inline;">
+                            <input type="hidden" name="deletePassengerID" value="2">
+                            <button type="button" onclick="deletePassenger(event, '2')">Delete</button>
+                        </form>
+                        <button type="button" onclick="updatePassenger('2')">Update</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="passengerID3">3</td>
+                    <td id="firstName3">Alex</td>
+                    <td id="lastName3">Anderson</td>
+                    <td id="email3">alex.at@email.com</td>
+                    <td id="phoneNumber3">238-521-5200</td>
+                    <td>
+                        <form action="/delete-passenger" method="POST" id="deleteForm3" style="display:inline;">
+                            <input type="hidden" name="deletePassengerID" value="3">
+                            <button type="button" onclick="deletePassenger(event, '3')">Delete</button>
+                        </form>
+                        <button type="button" onclick="updatePassenger('3')">Update</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="passengerID4">4</td>
+                    <td id="firstName4">Joshua</td>
+                    <td id="lastName4">Brown</td>
+                    <td id="email4">joshua.brown@email.com</td>
+                    <td id="phoneNumber4">113-888-6565</td>
+                    <td>
+                        <form action="/delete-passenger" method="POST" id="deleteForm4" style="display:inline;">
+                            <input type="hidden" name="deletePassengerID" value="4">
+                            <button type="button" onclick="deletePassenger(event, '4')">Delete</button>
+                        </form>
+                        <button type="button" onclick="updatePassenger('4')">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Create Passenger Form -->
+        <h3>Add New Passenger</h3>
+        <form id="addPassenger" action="/create-passenger" method="POST">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <br>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" required>
+            <br>
+            <button type="button" onclick="addPassenger()">Add Passenger</button>
+        </form>
+
+        <!-- Update Passenger Form -->
+        <h3>Update Passenger</h3>
+        <form id="updatePassenger" action="/update-passenger" method="POST">
+            <label for="selectCustomer">Select Passenger:</label>
+            <select id="selectCustomer" name="selectCustomer">
+                <option value="" disabled selected>Please select a passenger</option>
+                <option value="1">John Warner</option>
+                <option value="2">Jane Hart</option>
+                <option value="3">Alex Anderson</option>
+                <option value="4">Joshua Brown</option>
+            </select>
+            <br>
+            <label for="updateFirstName">First Name:</label>
+            <input type="text" id="updateFirstName" name="updateFirstName" required>
+            <br>
+            <label for="updateLastName">Last Name:</label>
+            <input type="text" id="updateLastName" name="updateLastName" required>
+            <br>
+            <label for="updateEmail">Email:</label>
+            <input type="email" id="updateEmail" name="updateEmail" required>
+            <br>
+            <label for="updatePhoneNumber">Phone Number:</label>
+            <input type="text" id="updatePhoneNumber" name="updatePhoneNumber" required>
+            <br>
+            <button type="submit">Update Passenger</button>
+        </form>
+
+    </section>
+  
+    <footer class="bg-primary text-white text-center py-3 mt-5">
+        <div class="container">
+            &copy; 2024 Hawk Airline Reservation System. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
